@@ -1,0 +1,21 @@
+{
+    "name": "fenton/libscwsclient",
+    "description": "scws oop's client",
+    "type": "library",
+    "version": "1.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fenton Ma",
+            "email": "mfdboy@163.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Fenton\\": "src/"
+        }
+    },
+    "require": {
+        "php": "7.0.0" 
+    }
+}
