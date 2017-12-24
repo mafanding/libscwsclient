@@ -2,7 +2,6 @@
     "name": "fenton/libscwsclient",
     "description": "scws oop's client",
     "type": "library",
-    "version": "1.0.0",
     "license": "MIT",
     "authors": [
         {
@@ -16,6 +15,6 @@
         }
     },
     "require": {
-        "php": ">7.0.0" 
+        "php": ">=7.0.0" 
     }
 }
