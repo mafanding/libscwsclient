@@ -1,4 +1,40 @@
-<?php
+<html>
+    <head>
+        <script
+            type="text/javascript"
+            src="../js/jquery-1.4.2.min.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shCore.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushJScript.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushPhp.js">
+        </script>
+        <script
+            type="text/javascript"
+            src="../syntax_highlighter/scripts/shBrushXml.js">
+        </script>
+        <link
+            href="../syntax_highlighter/styles/shCore.css" rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="../syntax_highlighter/styles/shCoreEclipse.css"
+            rel="stylesheet" type="text/css"
+        />
+        <link
+            href="../syntax_highlighter/styles/shThemeWordpress.css"
+            rel="stylesheet" type="text/css"
+        />
+    </head>
+    <body>
+        <pre class="brush: php">&lt;?php
 /**
  * A scws client
  *
@@ -81,8 +117,8 @@ final class Client
 
     protected function __construct()
     {
-        if (!extension_loaded("scws")) {
-            throw new Exception("scws extension didn't loaded!");
+        if (!extension_loaded(&quot;scws&quot;)) {
+            throw new Exception(&quot;scws extension didn't loaded!&quot;);
         }
         self::$scwsObject = scws_new();
     }
@@ -104,7 +140,7 @@ final class Client
     public function setCharset(string $charset)
     {
         if (!is_null(self::$scwsObject)) {
-            return self::$scwsObject->set_charset($charset);
+            return self::$scwsObject-&gt;set_charset($charset);
         }
         return false;
     }
@@ -119,7 +155,7 @@ final class Client
     public function addDict(string $dictPath, int $mode = self::XDICT_XDB)
     {
         if (!is_null(self::$scwsObject)) {
-            return self::$scwsObject->add_dict($dictPath, $mode);
+            return self::$scwsObject-&gt;add_dict($dictPath, $mode);
         }
         return false;
     }
@@ -134,7 +170,7 @@ final class Client
     public function setDict(string $dictPath, int $mode = self::XDICT_XDB)
     {
         if (!is_null(self::$scwsObject)) {
-            return self::$scwsObject->set_dict($dictPath, $mode);
+            return self::$scwsObject-&gt;set_dict($dictPath, $mode);
         }
         return false;
     }
@@ -148,7 +184,7 @@ final class Client
     public function setRule(string $rulePath)
     {
         if (!is_null(self::$scwsObject)) {
-            return self::$scwsObject->set_rule($rulePath);
+            return self::$scwsObject-&gt;set_rule($rulePath);
         }
         return false;
     }
@@ -162,13 +198,13 @@ final class Client
     public function setIgnore(bool $bool)
     {
         if (!is_null(self::$scwsObject)) {
-            return self::$scwsObject->set_ignore($bool);
+            return self::$scwsObject-&gt;set_ignore($bool);
         }
         return false;
     }
 
     /**
-     * 设定分词返回结果时是否复式分割，如“中国人”返回“中国＋人＋中国人”三个词。
+     * 设定分词返回结果时是否复式分割，如&ldquo;中国人&rdquo;返回&ldquo;中国＋人＋中国人&rdquo;三个词。
      *
      * @param int $mode 复合分词法的级别，缺省不复合分词。
      * @return bool
@@ -176,7 +212,7 @@ final class Client
     public function setMulti(int $mode)
     {
         if (!is_null(self::$scwsObject)) {
-            return self::$scwsObject->set_multi($mode);
+            return self::$scwsObject-&gt;set_multi($mode);
         }
         return false;
     }
@@ -190,7 +226,7 @@ final class Client
     public function setDuality(bool $bool)
     {
         if (!is_null(self::$scwsObject)) {
-            return self::$scwsObject->set_duality($bool);
+            return self::$scwsObject-&gt;set_duality($bool);
         }
         return false;
     }
@@ -205,11 +241,11 @@ final class Client
     {
         if (!is_null(self::$scwsObject)) {
             if (is_string($string)) {
-                $this->string = $string;
-                self::$scwsObject->send_text($this->string);
-                return self::$scwsObject->get_result();
-            } elseif (is_null($string) && is_string($this->string)) {
-                return self::$scwsObject->get_result();
+                $this-&gt;string = $string;
+                self::$scwsObject-&gt;send_text($this-&gt;string);
+                return self::$scwsObject-&gt;get_result();
+            } elseif (is_null($string) &amp;&amp; is_string($this-&gt;string)) {
+                return self::$scwsObject-&gt;get_result();
             }
         }
         return false;
@@ -227,12 +263,12 @@ final class Client
     {
         if (!is_null(self::$scwsObject)) {
             if (is_string($string)) {
-                $this->string = $string;
-                self::$scwsObject->send_text($this->string);
-                return self::$scwsObject->get_tops($limit, $attr);
-            } elseif (is_null($string) && is_string($this->string)) {
-                self::$scwsObject->send_text($this->string);
-                return self::$scwsObject->get_tops($limit, $attr);
+                $this-&gt;string = $string;
+                self::$scwsObject-&gt;send_text($this-&gt;string);
+                return self::$scwsObject-&gt;get_tops($limit, $attr);
+            } elseif (is_null($string) &amp;&amp; is_string($this-&gt;string)) {
+                self::$scwsObject-&gt;send_text($this-&gt;string);
+                return self::$scwsObject-&gt;get_tops($limit, $attr);
             }
         }
         return false;
@@ -249,12 +285,12 @@ final class Client
     {
         if (!is_null(self::$scwsObject)) {
             if (is_string($string)) {
-                $this->string = $string;
-                self::$scwsObject->send_text($this->string);
-                return self::$scwsObject->get_words($attr);
-            } elseif (is_null($string) && is_string($this->string)) {
-                self::$scwsObject->send_text($this->string);
-                return self::$scwsObject->get_words($attr);
+                $this-&gt;string = $string;
+                self::$scwsObject-&gt;send_text($this-&gt;string);
+                return self::$scwsObject-&gt;get_words($attr);
+            } elseif (is_null($string) &amp;&amp; is_string($this-&gt;string)) {
+                self::$scwsObject-&gt;send_text($this-&gt;string);
+                return self::$scwsObject-&gt;get_words($attr);
             }
         }
         return false;
@@ -271,12 +307,12 @@ final class Client
     {
         if (!is_null(self::$scwsObject)) {
             if (is_string($string)) {
-                $this->string = $string;
-                self::$scwsObject->send_text($this->string);
-                return self::$scwsObject->has_words($attr);
-            } elseif (is_null($string) && is_string($this->string)) {
-                self::$scwsObject->send_text($this->string);
-                return self::$scwsObject->has_words($attr);
+                $this-&gt;string = $string;
+                self::$scwsObject-&gt;send_text($this-&gt;string);
+                return self::$scwsObject-&gt;has_words($attr);
+            } elseif (is_null($string) &amp;&amp; is_string($this-&gt;string)) {
+                self::$scwsObject-&gt;send_text($this-&gt;string);
+                return self::$scwsObject-&gt;has_words($attr);
             }
         }
         return false;
@@ -290,7 +326,7 @@ final class Client
     public function version()
     {
         if (!is_null(self::$scwsObject)) {
-            return self::$scwsObject->version();
+            return self::$scwsObject-&gt;version();
         }
         return false;
     }
@@ -298,7 +334,7 @@ final class Client
     public function close()
     {
         if (!is_null(self::$scwsObject)) {
-            self::$scwsObject->close();
+            self::$scwsObject-&gt;close();
         }
     }
 
@@ -306,7 +342,16 @@ final class Client
 
     public function __destrcut()
     {
-        $this->close();
+        $this-&gt;close();
     }
 
 }
+</pre>
+        <script type="text/javascript">
+             SyntaxHighlighter.all();
+             jQuery('.gutter div').each(function(key, data){
+                jQuery(data).prepend('<a name="L'+jQuery(data).text()+'"/>');
+             });
+        </script>
+    </body>
+</html>

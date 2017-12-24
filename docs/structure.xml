@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="API Documentation" version="2.8.5">
+  <partials/>
+  <file path="Client.php" generated-path="Client.html" hash="7f6f1497500addf46bbe46237d203343" package="libscwsclient">
+    <docblock line="0">
+      <description>A scws client</description>
+      <long-description></long-description>
+      <tag name="version" line="0" description="1.0.0"/>
+      <tag name="author" line="0" description="fenton ma"/>
+      <tag name="package" line="0" description="libscwsclient"/>
+    </docblock>
+    <namespace-alias name="Exception">\Exception</namespace-alias>
+    <class final="true" abstract="false" namespace="Fenton\Scws" line="15" package="libscwsclient">
+      <extends/>
+      <name>Client</name>
+      <full_name>\Fenton\Scws\Client</full_name>
+      <docblock line="15">
+        <description></description>
+        <long-description></long-description>
+        <tag name="package" line="15" description="libscwsclient"/>
+      </docblock>
+      <constant namespace="Fenton\Scws" line="23" package="libscwsclient">
+        <name>XDICT_TXT</name>
+        <full_name>\Fenton\Scws\Client::XDICT_TXT</full_name>
+        <value>SCWS_XDICT_TXT</value>
+        <docblock line="23">
+          <description>返回 scws 版本号名称信息（字符串）。</description>
+          <long-description></long-description>
+          <tag name="var" line="23" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </constant>
+      <constant namespace="Fenton\Scws" line="30" package="libscwsclient">
+        <name>XDICT_XDB</name>
+        <full_name>\Fenton\Scws\Client::XDICT_XDB</full_name>
+        <value>SCWS_XDICT_XDB</value>
+        <docblock line="30">
+          <description>表示直接读取 xdb 文件（此为默认值）</description>
+          <long-description></long-description>
+          <tag name="var" line="30" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </constant>
+      <constant namespace="Fenton\Scws" line="37" package="libscwsclient">
+        <name>XDICT_MEM</name>
+        <full_name>\Fenton\Scws\Client::XDICT_MEM</full_name>
+        <value>SCWS_XDICT_MEM</value>
+        <docblock line="37">
+          <description>表示将 xdb 文件全部加载到内存中，以 XTree 结构存放，可用异或结合另外2个使用。</description>
+          <long-description></long-description>
+          <tag name="var" line="37" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </constant>
+      <constant namespace="Fenton\Scws" line="44" package="libscwsclient">
+        <name>MULTI_SHORT</name>
+        <full_name>\Fenton\Scws\Client::MULTI_SHORT</full_name>
+        <value>SCWS_MULTI_SHORT</value>
+        <docblock line="44">
+          <description>短词</description>
+          <long-description></long-description>
+          <tag name="var" line="44" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </constant>
+      <constant namespace="Fenton\Scws" line="51" package="libscwsclient">
+        <name>MULTI_DUALITY</name>
+        <full_name>\Fenton\Scws\Client::MULTI_DUALITY</full_name>
+        <value>SCWS_MULTI_DUALITY</value>
+        <docblock line="51">
+          <description>二元（将相邻的2个单字组合成一个词）</description>
+          <long-description></long-description>
+          <tag name="var" line="51" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </constant>
+      <constant namespace="Fenton\Scws" line="58" package="libscwsclient">
+        <name>MULTI_ZMAIN</name>
+        <full_name>\Fenton\Scws\Client::MULTI_ZMAIN</full_name>
+        <value>SCWS_MULTI_ZMAIN</value>
+        <docblock line="58">
+          <description>重要单字</description>
+          <long-description></long-description>
+          <tag name="var" line="58" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </constant>
+      <constant namespace="Fenton\Scws" line="65" package="libscwsclient">
+        <name>MULTI_ZALL</name>
+        <full_name>\Fenton\Scws\Client::MULTI_ZALL</full_name>
+        <value>SCWS_MULTI_ZALL</value>
+        <docblock line="65">
+          <description>全部单字</description>
+          <long-description></long-description>
+          <tag name="var" line="65" description="" type="integer" variable="">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </constant>
+      <property static="true" visibility="protected" namespace="Fenton\Scws" line="70" package="libscwsclient">
+        <name>$instance</name>
+        <full_name>\Fenton\Scws\Client::instance</full_name>
+        <default>null</default>
+        <docblock line="70">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="70" description="" type="self" variable="">
+            <type>self</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="true" visibility="protected" namespace="Fenton\Scws" line="75" package="libscwsclient">
+        <name>$scwsObject</name>
+        <full_name>\Fenton\Scws\Client::scwsObject</full_name>
+        <default>null</default>
+        <docblock line="75">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="75" description="" type="\SimpleCWS" variable="">
+            <type>\SimpleCWS</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Fenton\Scws" line="80" package="libscwsclient">
+        <name>$string</name>
+        <full_name>\Fenton\Scws\Client::string</full_name>
+        <default>null</default>
+        <docblock line="80">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="80" description="" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Fenton\Scws" line="82" package="libscwsclient">
+        <name>__construct</name>
+        <full_name>\Fenton\Scws\Client::__construct()</full_name>
+        <docblock line="82">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="Fenton\Scws" line="90" package="libscwsclient">
+        <name>getInstance</name>
+        <full_name>\Fenton\Scws\Client::getInstance()</full_name>
+        <docblock line="90">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="104" package="libscwsclient">
+        <name>setCharset</name>
+        <full_name>\Fenton\Scws\Client::setCharset()</full_name>
+        <docblock line="104">
+          <description>设定分词词典、规则集、欲分文本字符串的字符集。</description>
+          <long-description></long-description>
+          <tag name="param" line="104" description="&lt;p&gt;要新设定的字符集，目前只支持 utf8 和 gbk。（注：默认为 gbk，utf8不要写成utf-8）&lt;/p&gt;" type="string" variable="$charset">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="104" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$charset</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="119" package="libscwsclient">
+        <name>addDict</name>
+        <full_name>\Fenton\Scws\Client::addDict()</full_name>
+        <docblock line="119">
+          <description>添加分词所用的词典，新加入的优先查找。</description>
+          <long-description></long-description>
+          <tag name="param" line="119" description="&lt;p&gt;词典的路径，可以是相对路径或完全路径。（遵循安全模式下的 open_basedir）&lt;/p&gt;" type="string" variable="$dictPath">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="119" description="&lt;p&gt;可选，表示加载的方式。&lt;/p&gt;" type="integer" variable="$mode">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="119" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dictPath</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$mode</name>
+          <default>self::XDICT_XDB</default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="134" package="libscwsclient">
+        <name>setDict</name>
+        <full_name>\Fenton\Scws\Client::setDict()</full_name>
+        <docblock line="134">
+          <description>设定分词所用的词典并清除已存在的词典列表。</description>
+          <long-description></long-description>
+          <tag name="param" line="134" description="&lt;p&gt;词典的路径，可以是相对路径或完全路径。（遵循安全模式下的 open_basedir）&lt;/p&gt;" type="string" variable="$dictPath">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="134" description="&lt;p&gt;可选，表示加载的方式。&lt;/p&gt;" type="integer" variable="$mode">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="134" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$dictPath</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$mode</name>
+          <default>self::XDICT_XDB</default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="148" package="libscwsclient">
+        <name>setRule</name>
+        <full_name>\Fenton\Scws\Client::setRule()</full_name>
+        <docblock line="148">
+          <description>设定分词所用的新词识别规则集（用于人名、地名、数字时间年代等识别）。</description>
+          <long-description></long-description>
+          <tag name="param" line="148" description="&lt;p&gt;规则集的路径，可以是相对路径或完全路径。（遵循安全模式下的 open_basedir）&lt;/p&gt;" type="string" variable="$rulePath">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="148" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$rulePath</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="162" package="libscwsclient">
+        <name>setIgnore</name>
+        <full_name>\Fenton\Scws\Client::setIgnore()</full_name>
+        <docblock line="162">
+          <description>设定分词返回结果时是否去除一些特殊的标点符号之类。</description>
+          <long-description></long-description>
+          <tag name="param" line="162" description="&lt;p&gt;设定值，如果为 true 则结果中不返回标点符号，如果为 false 则会返回，缺省为 false。&lt;/p&gt;" type="boolean" variable="$bool">
+            <type>boolean</type>
+          </tag>
+          <tag name="return" line="162" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$bool</name>
+          <default></default>
+          <type>boolean</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="176" package="libscwsclient">
+        <name>setMulti</name>
+        <full_name>\Fenton\Scws\Client::setMulti()</full_name>
+        <docblock line="176">
+          <description>设定分词返回结果时是否复式分割，如“中国人”返回“中国＋人＋中国人”三个词。</description>
+          <long-description></long-description>
+          <tag name="param" line="176" description="&lt;p&gt;复合分词法的级别，缺省不复合分词。&lt;/p&gt;" type="integer" variable="$mode">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="176" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$mode</name>
+          <default></default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="190" package="libscwsclient">
+        <name>setDuality</name>
+        <full_name>\Fenton\Scws\Client::setDuality()</full_name>
+        <docblock line="190">
+          <description>设定是否将闲散文字自动以二字分词法聚合。</description>
+          <long-description></long-description>
+          <tag name="param" line="190" description="&lt;p&gt;设定值，如果为 true 则结果中多个单字会自动按二分法聚分，如果为 false 则不处理，缺省为 false。&lt;/p&gt;" type="boolean" variable="$bool">
+            <type>boolean</type>
+          </tag>
+          <tag name="return" line="190" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$bool</name>
+          <default></default>
+          <type>boolean</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="204" package="libscwsclient">
+        <name>getResult</name>
+        <full_name>\Fenton\Scws\Client::getResult()</full_name>
+        <docblock line="204">
+          <description>根据$string的文本内容，返回一系列切好的词汇。每次切词后本函数应该循环调用，直到返回 false 为止，因为程序每次返回的词数是不确定的。</description>
+          <long-description></long-description>
+          <tag name="param" line="204" description="&lt;p&gt;需要切割的文本。&lt;/p&gt;" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="204" description="| false" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="226" package="libscwsclient">
+        <name>getTops</name>
+        <full_name>\Fenton\Scws\Client::getTops()</full_name>
+        <docblock line="226">
+          <description>根据$string设定的文本内容，返回系统计算出来的最关键词汇列表。</description>
+          <long-description></long-description>
+          <tag name="param" line="226" description="&lt;p&gt;可选参数，是一系列词性组成的字符串，各词性之间以半角的逗号隔开， 这表示返回的词性必须在列表中，如果以~开头，则表示取反，词性必须不在列表中，缺省为NULL，返回全部词性，不过滤。&lt;/p&gt;" type="string" variable="$attr">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="226" description="&lt;p&gt;需要计算的文本。&lt;/p&gt;" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="226" description="&lt;p&gt;可选参数，返回的词的最大数量，缺省是 10&lt;/p&gt;" type="integer" variable="$limit">
+            <type>integer</type>
+          </tag>
+          <tag name="return" line="226" description="| false" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$attr</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$limit</name>
+          <default>10</default>
+          <type>integer</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="248" package="libscwsclient">
+        <name>getWords</name>
+        <full_name>\Fenton\Scws\Client::getWords()</full_name>
+        <docblock line="248">
+          <description>根据$string设定的文本内容，返回系统中词性符合要求的关键词汇。</description>
+          <long-description></long-description>
+          <tag name="param" line="248" description="&lt;p&gt;是一系列词性组成的字符串，各词性之间以半角的逗号隔开， 这表示返回的词性必须在列表中，如果以~开头，则表示取反，词性必须不在列表中，若为空则返回全部词。&lt;/p&gt;" type="string" variable="$attr">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="248" description="&lt;p&gt;需要查询的文本。&lt;/p&gt;" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="248" description="| false" type="array">
+            <type>array</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$attr</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="270" package="libscwsclient">
+        <name>hasWords</name>
+        <full_name>\Fenton\Scws\Client::hasWords()</full_name>
+        <docblock line="270">
+          <description>根据$string设定的文本内容，返回系统中是否包括符合词性要求的关键词。</description>
+          <long-description></long-description>
+          <tag name="param" line="270" description="&lt;p&gt;是一系列词性组成的字符串，各词性之间以半角的逗号隔开， 这表示返回的词性必须在列表中，如果以~开头，则表示取反，词性必须不在列表中，若为空则返回全部词。&lt;/p&gt;" type="string" variable="$attr">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="270" description="&lt;p&gt;需要查询的文本。&lt;/p&gt;" type="string" variable="$string">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="270" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$attr</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$string</name>
+          <default>null</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="290" package="libscwsclient">
+        <name>version</name>
+        <full_name>\Fenton\Scws\Client::version()</full_name>
+        <docblock line="290">
+          <description>返回 scws 版本号名称信息（字符串）。</description>
+          <long-description></long-description>
+          <tag name="return" line="290" description="| false" type="string">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="298" package="libscwsclient">
+        <name>close</name>
+        <full_name>\Fenton\Scws\Client::close()</full_name>
+        <docblock line="298">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Fenton\Scws" line="305" package="libscwsclient">
+        <name>__clone</name>
+        <full_name>\Fenton\Scws\Client::__clone()</full_name>
+        <docblock line="305">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Fenton\Scws" line="307" package="libscwsclient">
+        <name>__destrcut</name>
+        <full_name>\Fenton\Scws\Client::__destrcut()</full_name>
+        <docblock line="307">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="15" code="PPC:ERR-50005">No summary for class \Fenton\Scws\Client</error>
+      <error line="82" code="PPC:ERR-50008">No summary for method __construct()</error>
+      <error line="90" code="PPC:ERR-50008">No summary for method getInstance()</error>
+      <error line="298" code="PPC:ERR-50008">No summary for method close()</error>
+      <error line="305" code="PPC:ERR-50008">No summary for method __clone()</error>
+      <error line="307" code="PPC:ERR-50008">No summary for method __destrcut()</error>
+      <error line="70" code="PPC:ERR-50007">No summary for property $instance</error>
+      <error line="75" code="PPC:ERR-50007">No summary for property $scwsObject</error>
+      <error line="80" code="PPC:ERR-50007">No summary for property $string</error>
+    </parse_markers>
+    <source>eJztWutPG8cW/85fMY1Qr4nSJumnqmnapKFXRYK2CkRNq0jWYi+wt4tt7a7zUG4qQ/ArYGy1PMKjTWhtcHPBdghN/AL+l3Zn1v7Ev3DP7KyXXT94Bbg3Si0E9pmZ8z6/OWfNx5/6hnxt58+ebUNn0VUku+7IyCUKvEcBAqVduc1LsuD1oIvvX3j/gk7h/MqQV0IDsAnow5xO9HGu77lBHolCP2Vi8jjf5uZdIifxDlmRBJfiVO75eBldRhc7LrW1ebhhXoajPPqnzu1WL5wFul/m0a3P77p4nwKygTAgeDgRNONkGV1jvO+3tSF46brT11lU2Z7CC78wI7RohCyu4vgrnIhpKzl1e4mMZHfKEbw2q60uq/n1nXL0r8CocbTG4cptTkICVVz/fF7/6/J6ZAXd7Oy61ufsu9kHuvde+6bXaRIuNSqylNaSRW1hg0ymKtkSjs+gu+5+RGbCauklKEHWkmq+WC09rmSSOFAGVQ6rx83Oz+x6AKGVHjgXsojHwXT1YRo/elrZ3MSRHA4F8dpjNb+2U55QSyl0s0/ieaSVfiK/jMECmdqCBRzPalNpXB4lkRlYwokIji/j5MwHav6ZurkNa0dwZc/nPXYTgNBogvZkrZKNHZx3z43uvi5n7xdfXTcDZSE18leLEzj4kCZGLqQt5KujJW1+jNqFY9M0V0pjYC2JJNR8AIigyqGCxUR33rja3dX3rV0fg9ioUTUcqyyPMPGHlfRdz9WuL+1ydFKjFCMNjibland3nRCgNMrQGcm8OGDj5JO8Cu9SeDeSFU4RXKhdANacB0DgMvL4RbEFo1u9wrBP5EHoPuxo/X/V/y8g7s2QApJnsAWzdrZq57C7POD3uCg0IadT94zkdymODn3TfcYRXsIAcrzD31V4D0VQp+jl3LzbcYbqd6ajw7KRvpQhyXsHefg7yMQ9thWZHJBbcHv+oSDG6J0zgKC10w/Md9TfH31kdwL94ATWDuPEA8Mcf78IDjP8Zpo0yCtdRkSamiQAL/CJw5BUi16DRXXr1JVgHaU6mmou8Ypf8tQfs2lsxbbMFs7M40gIahJ+cDD/V2CksjKGI3PVhRC8J6vrsAqgR++BGupDcbP3+p4GzPJxEjdsJAZqdw1xkswrCMqRzOSYQCsDQEZtIYOjMRx/RqayZGIE+ZWBDxH+cQIN9n8P/CnWv0jvlOcZ1gPo0wU4R/epeb3QQ3MAL/D5vQ93oQVdMZzR7/WK9gxlMTODBfpdY2o66tRumo11sdvNkobo2aOxu/G9T4C305DhMIXtEdABTpRbhpG8KsFdxMJIogG4SsDDLJ7gJnA7XQ2mgKiWH+NghDxJkejWvqFzQ6vxNacMIcaK8nyVxVtj7DKDi448zgLc42yB0eFiwxm4CdLsIwtddeQPvPUMZ6JAJ+klXI6r+XFghbw+3uPs52TeLUjWoDEdADpR+7DXzSMQVQ1EQaZxEeuXLjAgMwVgtmvEwcPNud2dYJqj3s5zFqmXjaCZjcGJZQJo46QaOCx66DocOR2sVV2XDrjwkuSD1bkkfrUOnQletCxFZsHDb21SQP39HyUFhYdTSAqKyBT5QzjyHxP2IT6wqhYn1WIRGn+4BfBijr0h0zkAbjL7sjq7gQsbauk3bS3KjjcfBey5I/lFnuVOTdYppc8hkuA66OioV/hE40yFOHZFHUeA2RCnDyCLEC3wKU4s48kSFD7twYsLWrRAMo9oBjwNa6MFuIphylML49rzUssoUu+hdv23IYtOXRN4eRSk0FsZGjiozMgckwvjEL2cdU2sUmxHdIvoGbU8z7bSfqBc1BZHzOUjVnPXoMcLE/Ou1icaRIFJY4JOLoTJGCQ7bMDRdebHPwPU0XhhE4r1z8DP7JRJ3CmPA53+tuxR81E2hbWMtAVnQSAMqgw1XkxDwmjFFb3azSjFrHuOGKsev6gIDlPsiUZqWJd1HGBqxCQXqs6uk+nfoEsGcKyEn+FHaQAyOhSvzZquq4zMg5eOsbhwct6csGn16HLJRJTKhZadSYyEWpQbDduYlggdW7l1+jlRUO6dVr25DXGvV3DkaYHEMsaYqt+H+qATCuJMgTYXejUBYmovStAe4UgYpzZZw0Seh8FRJBsnq0tAp81QYpKeDW/SS7I4Vcmm4I7SJrOV3EO4TvUxZwNHcsbzNRYJcDpZ+5WGaOEpvNfS47gYZ0yN+mfCpnOQaxAzbSnDxqd9r1rjb3UxQMcjUDy6btrXJMKcJHH30L+ZWnuGGgbb67wMNeSoE8WG/NcMujEaM5YOg3XDLvpqV4YEGXKhJtzYe6lhY9ME8ridCn8X2isrl47Gw62TcJDe3MwRdeceIB6caB3ya3agd99FFutsspvZeCTpx1EK5pjetCCgGrTSk0pmScvM4nCR/EwnS7IYwMEX1akMK44DThOcokhGM4/jo5DndF6lqW6UHGUWWNFK0AcmzKcG+oPnCZwYY6vQtkA7CoiLY48qKz/CtmpgFhqN6vwULgdgJ6psz7E5wVZUgRW8HawulWAIYtqyB7gGWpZSP8BpnNygpIhxHsdncDxGHWE5T7HUzsJE1C9vdHebbmNPC9lJ+qCYNkdhUkpay3GPImb+blrElltbFIYFpd6jVrONUCVXYKkajpvagtfRxQuvhQt9Xp/ssEWWYcK5eoNqZIvGl0H4W4UdCnUWM/4c89aJwcj/1IrTgiOoPAMsYMpIROjjxuejFDIsoHQwOHrz8acynqLdxO9FetCOPQcEG/IkVcn+emwdwzdeyW2HhhaY8FZBwB3dK29s7e+h/ikWvTGETQTJ+KpR+nptNALA39V/fNW/70Q4xMl/F309D3DKm1z0+6h/1Gcpr/8PJzWVWVwPcicZ/5DT/Nvm43hGYQo41KOJejVdoldu/v3xIZRsop3Bt163mhZNv6EXvR44cr+Fpk6nmwf/u/yN3+AbCWeTCVwetP0XiV0AJw==</source>
+  </file>
+  <package name="global" full_name="global"/>
+  <package name="libscwsclient" full_name="libscwsclient"/>
+  <namespace name="Fenton" full_name="Fenton">
+    <namespace name="Scws" full_name="Fenton\Scws"/>
+  </namespace>
+  <deprecated count="0"/>
+</project>

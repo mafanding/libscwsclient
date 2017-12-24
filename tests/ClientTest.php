@@ -23,7 +23,7 @@ final class ClientTest extends TestCase
      */
     public function setCharset(Client $instance)
     {
-        $this->assertTrue($instance->setCharset("utf-8"));
+        $this->assertTrue($instance->setCharset("utf8"));
     }
 
     /**
