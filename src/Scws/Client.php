@@ -1,6 +1,6 @@
 <?php
 /**
- *
+ * A scws client
  *
  * @version 1.0.0
  * @author fenton ma
