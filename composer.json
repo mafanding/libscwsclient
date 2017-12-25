@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Fenton\\Scws\\": "src/Scws/"
+            "Fenton\\Scws\\": "src/Fenton/Scws/"
         }
     },
     "require": {
